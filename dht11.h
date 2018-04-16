@@ -35,8 +35,8 @@ typedef enum {
 
 /* struct that holds DHT11 conversion values */
 typedef struct {
-  FLOAT RH; /* relative humidity */
-  FLOAT T;  /* temperature */
+  FLOAT RH; /* relative humidity in % */
+  FLOAT T;  /* temperature in °C */
 } DHT11_DATA;
 
 /* Description:

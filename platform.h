@@ -26,10 +26,10 @@
 #include "Arduino.h"
 
 /* data types */
-#define UINT8 unsigned char
-#define UINT16 unsigned int
-#define UINT32 unsigned long
-#define FLOAT float
+typedef unsigned char UINT8;
+typedef unsigned int UINT16;
+typedef unsigned long UINT32;
+typedef float FLOAT;
 
 /* time functions */
 #define GET_MICROSECONDS() micros() /* get time from the system in microseconds */
@@ -37,16 +37,16 @@
 #define DELAY_MS(ms) delay(ms)  /* delay milliseconds */
 
 /* interrupt configuration */
-#define ATTACH_INTERRUPT(pin, ISR, mode) attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
-#define DETACH_INTERRUPT(pin) detachInterrupt(digitalPinToInterrupt(pin))
-#define FALLING_EDGE FALLING /* trigger the interrupt on the falling edge of the input signal */
+#define ATTACH_INTERRUPT(pin, ISR, mode) attachInterrupt(digitalPinToInterrupt(pin), ISR, mode) /* attach interrupt on GPIO pin, with ISR function and mode trigger method */
+#define DETACH_INTERRUPT(pin) detachInterrupt(digitalPinToInterrupt(pin)) /* detach interrupt from GPIO pin */
+#define FALLING_EDGE FALLING /* mode parameter of ATTACH_INTERRUPT: trigger the interrupt on the falling edge of the input signal */
 
 /* GPIO configuration */
-#define GPIO_MODE(pin, mode) pinMode(pin, mode)
-#define GPIO_WRITE(pin, value) digitalWrite(pin, value)
-#define GPIO_OUT OUTPUT
-#define GPIO_IN_PULLUP INPUT_PULLUP
-#define GPIO_LOW LOW
-#define GPIO_HIGH HIGH
+#define GPIO_MODE(pin, mode) pinMode(pin, mode) /* set GPIO pin mode (output or input pullup) */
+#define GPIO_WRITE(pin, value) digitalWrite(pin, value) /* set GPIO pin state (low or high) */
+#define GPIO_OUT OUTPUT /* mode parameter of GPIO_MODE */
+#define GPIO_IN_PULLUP INPUT_PULLUP /* mode parameter of GPIO_MODE */
+#define GPIO_LOW LOW /* value parameter of GPIO_MODE */
+#define GPIO_HIGH HIGH /* value parameter of GPIO_MODE */
 
 #endif /* PLATFORM_H */

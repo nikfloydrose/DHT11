@@ -53,5 +53,6 @@ void loop()
     default:
       outMessage = "Generic error."; 
   }
+
   Serial.println(outMessage);
 }
